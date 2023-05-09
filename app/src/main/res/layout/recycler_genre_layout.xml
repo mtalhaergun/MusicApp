@@ -16,7 +16,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="#252525"
-        app:strokeWidth="3dp"
+        app:strokeWidth="2dp"
         app:strokeColor="#FF9800"
         app:cardCornerRadius="8dp"
         app:cardPreventCornerOverlap="true"
@@ -45,7 +45,7 @@
                 android:layout_width="190dp"
                 android:layout_height="50dp"
                 app:cardBackgroundColor="#FF9800"
-                app:cardCornerRadius="8dp"
+
                 android:layout_below="@id/genreImageCard">
 
                 <TextView

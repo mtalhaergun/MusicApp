@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="artist"
+            type="com.example.musicapp.model.artist.Data" />
+    </data>
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -10,7 +16,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="#252525"
-        app:strokeWidth="3dp"
+        app:strokeWidth="2dp"
         app:strokeColor="#FF9800"
         app:cardCornerRadius="8dp"
         app:cardPreventCornerOverlap="true"
@@ -29,7 +35,8 @@
                     android:id="@+id/artistImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    load_image="@{String.valueOf(artist.picture_medium)}"/>
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -38,7 +45,6 @@
                 android:layout_width="190dp"
                 android:layout_height="50dp"
                 app:cardBackgroundColor="#FF9800"
-                app:cardCornerRadius="8dp"
                 android:layout_below="@id/artistImageCard">
 
                 <TextView
@@ -50,7 +56,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Artist Name"
+                    android:text="@{artist.name}"
                     android:maxLines="1"
                     android:textColor="#252525"
                     android:textSize="13sp"

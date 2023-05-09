@@ -33,7 +33,7 @@ class GenreAdapter : RecyclerView.Adapter<GenreAdapter.GenreVH>() {
         holder.bind(genres[position])
 
         holder.itemView.setOnClickListener {
-            val navigation = GenreFragmentDirections.actionGenreFragmentToArtistFragment(genres[position].id)
+            val navigation = GenreFragmentDirections.actionGenreFragmentToArtistFragment(genres[position])
             Navigation.findNavController(it).navigate(navigation)
         }
     }

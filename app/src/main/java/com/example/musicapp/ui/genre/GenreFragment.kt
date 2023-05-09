@@ -20,7 +20,6 @@ class GenreFragment : Fragment() {
     private var _binding : FragmentGenreBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<GenreViewModel>()
-    private var genreList = listOf<Data>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
