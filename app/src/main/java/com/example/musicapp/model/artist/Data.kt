@@ -1,5 +1,7 @@
 package com.example.musicapp.model.artist
 
+import java.io.Serializable
+
 data class Data(
 
     val id: Int,
@@ -12,4 +14,4 @@ data class Data(
     val radio: Boolean,
     val tracklist: String,
     val type: String
-)
+): Serializable

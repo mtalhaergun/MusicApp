@@ -25,5 +25,20 @@
         <argument
             android:name="genreArg"
             app:argType="com.example.musicapp.model.genre.Data" />
+        <action
+            android:id="@+id/action_artistFragment_to_artistDetailFragment"
+            app:destination="@id/artistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/artistDetailFragment"
+        android:name="com.example.musicapp.ui.artistdetail.ArtistDetailFragment"
+        android:label="fragment_artist_detail"
+        tools:layout="@layout/fragment_artist_detail" >
+        <action
+            android:id="@+id/action_artistDetailFragment_to_artistFragment"
+            app:destination="@id/artistFragment" />
+        <argument
+            android:name="artistArg"
+            app:argType="com.example.musicapp.model.artist.Data" />
     </fragment>
 </navigation>

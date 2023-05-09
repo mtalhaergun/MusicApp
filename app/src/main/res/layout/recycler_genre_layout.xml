@@ -16,8 +16,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="#252525"
-        app:strokeWidth="2dp"
-        app:strokeColor="#FF9800"
         app:cardCornerRadius="8dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
@@ -44,7 +42,7 @@
                 android:id="@+id/genreNameCard"
                 android:layout_width="190dp"
                 android:layout_height="50dp"
-                app:cardBackgroundColor="#FF9800"
+                app:cardBackgroundColor="#2E2E2E"
 
                 android:layout_below="@id/genreImageCard">
 
@@ -59,8 +57,8 @@
                     android:layout_marginBottom="10dp"
                     android:text="@{genre.name}"
                     android:maxLines="1"
-                    android:textColor="#252525"
-                    android:textSize="13sp"
+                    android:textColor="#FF9800"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
 

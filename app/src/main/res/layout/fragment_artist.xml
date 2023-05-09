@@ -21,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/imageViewLogo"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/music_logo"
@@ -33,7 +33,7 @@
                 android:id="@+id/textViewGenreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="24dp"
                 android:text="GENRE NAME"
                 android:textSize="25sp"
                 android:textColor="@color/white"
@@ -43,8 +43,8 @@
 
             <ImageView
                 android:id="@+id/imageViewLogo2"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:rotationY="180"

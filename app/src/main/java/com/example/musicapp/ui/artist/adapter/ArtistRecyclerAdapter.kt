@@ -2,9 +2,11 @@ package com.example.musicapp.ui.artist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicapp.databinding.RecyclerArtistLayoutBinding
 import com.example.musicapp.model.artist.Data
+import com.example.musicapp.ui.artist.ArtistFragmentDirections
 
 class ArtistRecyclerAdapter : RecyclerView.Adapter<ArtistRecyclerAdapter.ArtistVH>() {
 
@@ -27,6 +29,11 @@ class ArtistRecyclerAdapter : RecyclerView.Adapter<ArtistRecyclerAdapter.ArtistV
 
     override fun onBindViewHolder(holder: ArtistVH, position: Int) {
         holder.bind(artists[position])
+
+        holder.itemView.setOnClickListener {
+            val navigation = ArtistFragmentDirections.actionArtistFragmentToArtistDetailFragment(artists[position])
+            Navigation.findNavController(it).navigate(navigation)
+        }
     }
 
     override fun getItemCount(): Int {
