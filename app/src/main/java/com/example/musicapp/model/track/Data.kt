@@ -1,6 +1,7 @@
 package com.example.musicapp.model.track
 
 data class Data(
+
     val artist: Artist,
     val disk_number: Int,
     val duration: Int,

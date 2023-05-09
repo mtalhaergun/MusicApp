@@ -1,6 +1,7 @@
 package com.example.musicapp.model.artist
 
 data class Data(
+
     val id: Int,
     val name: String,
     val picture: String,

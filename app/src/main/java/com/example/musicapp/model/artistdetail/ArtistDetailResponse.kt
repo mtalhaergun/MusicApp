@@ -1,6 +1,7 @@
 package com.example.musicapp.model.artistdetail
 
 data class ArtistDetailResponse(
+
     val id: Int,
     val link: String,
     val name: String,

@@ -1,6 +1,7 @@
 package com.example.musicapp.model.genre
 
 data class Data(
+
     val id: Int,
     val name: String,
     val picture: String,

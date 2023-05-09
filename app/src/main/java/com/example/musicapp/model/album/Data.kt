@@ -1,6 +1,7 @@
 package com.example.musicapp.model.album
 
 data class Data(
+
     val cover: String,
     val cover_big: String,
     val cover_medium: String,
