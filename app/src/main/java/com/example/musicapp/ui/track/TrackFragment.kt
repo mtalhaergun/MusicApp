@@ -49,4 +49,9 @@ class TrackFragment : Fragment() {
         })
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        adapterTrack.stopMusic()
+    }
+
 }
