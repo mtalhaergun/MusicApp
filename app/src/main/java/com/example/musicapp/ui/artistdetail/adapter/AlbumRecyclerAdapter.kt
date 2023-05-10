@@ -2,9 +2,11 @@ package com.example.musicapp.ui.artistdetail.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicapp.databinding.RecyclerAlbumLayoutBinding
 import com.example.musicapp.model.album.Data
+import com.example.musicapp.ui.artistdetail.ArtistDetailFragmentDirections
 
 class AlbumRecyclerAdapter : RecyclerView.Adapter<AlbumRecyclerAdapter.AlbumVH>() {
 
@@ -29,7 +31,8 @@ class AlbumRecyclerAdapter : RecyclerView.Adapter<AlbumRecyclerAdapter.AlbumVH>(
         holder.bind(albums[position])
 
         holder.itemView.setOnClickListener {
-
+            val navigation = ArtistDetailFragmentDirections.actionArtistDetailFragmentToTrackFragment(albums[position])
+            Navigation.findNavController(it).navigate(navigation)
         }
     }
 

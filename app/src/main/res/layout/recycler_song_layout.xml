@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="track"
+            type="com.example.musicapp.model.track.Data" />
+    </data>
+
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -29,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background" />
+                    load_image="@{`https://e-cdns-images.dzcdn.net/images/cover/`+String.valueOf(track.md5_image)+`/250x250-000000-80-0-0.jpg`}"/>
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -42,9 +49,9 @@
                 android:layout_marginEnd="5dp"
                 android:layout_toStartOf="@+id/likeImage"
                 android:layout_toEndOf="@id/songImageCard"
-                android:text="Song Name"
+                android:text="@{track.title}"
                 android:textColor="#FF9800"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -54,9 +61,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_below="@+id/songName"
                 android:layout_toEndOf="@id/songImageCard"
-                android:text="2:34"
+                android:text=""
                 android:textColor="#FF9800"
-                android:textSize="13sp" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:id="@+id/likeImage"

@@ -40,5 +40,20 @@
         <argument
             android:name="artistArg"
             app:argType="com.example.musicapp.model.artist.Data" />
+        <action
+            android:id="@+id/action_artistDetailFragment_to_trackFragment"
+            app:destination="@id/trackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackFragment"
+        android:name="com.example.musicapp.ui.track.TrackFragment"
+        android:label="fragment_track"
+        tools:layout="@layout/fragment_track" >
+        <action
+            android:id="@+id/action_trackFragment_to_artistDetailFragment"
+            app:destination="@id/artistDetailFragment" />
+        <argument
+            android:name="albumArg"
+            app:argType="com.example.musicapp.model.album.Data" />
     </fragment>
 </navigation>
