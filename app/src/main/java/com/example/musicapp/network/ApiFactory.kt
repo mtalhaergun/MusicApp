@@ -19,19 +19,16 @@ interface ApiFactory {
         @Path("id") id : String
     ) : ArtistResponse
 
-    @GET("artist/{id}")
-    suspend fun getArtistDetail(
-        @Path("id") id : String
-    ) : ArtistDetailResponse
-
     @GET("artist/{id}/albums")
     suspend fun getAlbums(
-        @Path("id") id : String
+        @Path("id") id : String,
+        @Query("index") index : Int
     ) : AlbumResponse
 
     @GET("album/{id}/tracks")
     suspend fun getTracks(
-        @Path("id") id : String
+        @Path("id") id : String,
+        @Query("index") index : Int
     ) : TrackResponse
 
 }

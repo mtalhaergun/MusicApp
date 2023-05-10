@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 class ArtistDetailRepository @Inject constructor(private val apiFactory: ApiFactory) {
 
-    suspend fun getAlbums(id : String) : AlbumResponse{
-        return apiFactory.getAlbums(id)
+    suspend fun getAlbums(id : String, index : Int) : AlbumResponse{
+        return apiFactory.getAlbums(id,index)
     }
 
 }

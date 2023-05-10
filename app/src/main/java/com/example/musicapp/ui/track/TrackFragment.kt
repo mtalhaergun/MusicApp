@@ -39,13 +39,13 @@ class TrackFragment : Fragment() {
         adapterTrack = TrackRecyclerAdapter()
         binding.rvTrack.adapter = adapterTrack
         binding.albumName.text = args.albumArg.title
-        viewModel.getTracks(args.albumArg.id.toString())
+        viewModel.getTracks(args.albumArg.id.toString(),0)
         observe()
     }
 
     fun observe(){
         viewModel.trackResponse.observe(viewLifecycleOwner, Observer {
-            adapterTrack.setTracks(it.data)
+            adapterTrack.setTracks(it)
         })
     }
 

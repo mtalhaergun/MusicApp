@@ -40,13 +40,13 @@ class ArtistDetailFragment : Fragment() {
         adapterAlbum = AlbumRecyclerAdapter()
         binding.rvAlbum.adapter = adapterAlbum
         binding.artist = args.artistArg
-        viewModel.getAlbums(args.artistArg.id.toString())
+        viewModel.getAlbums(args.artistArg.id.toString(),0)
         observe()
     }
 
     fun observe(){
         viewModel.albumResponse.observe(viewLifecycleOwner, Observer {
-            adapterAlbum.setAlbums(it.data)
+            adapterAlbum.setAlbums(it)
         })
     }
 

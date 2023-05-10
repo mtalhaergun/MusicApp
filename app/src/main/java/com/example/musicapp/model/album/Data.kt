@@ -12,7 +12,7 @@ data class Data(
     val explicit_lyrics: Boolean,
     val fans: Int,
     val genre_id: Int,
-    val id: Int,
+    val id: Long,
     val link: String,
     val md5_image: String,
     val record_type: String,

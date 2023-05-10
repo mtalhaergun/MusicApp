@@ -4,7 +4,7 @@ import java.io.Serializable
 
 data class Data(
 
-    val id: Int,
+    val id: Long,
     val name: String,
     val picture: String,
     val picture_big: String,

@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 class TrackRepository @Inject constructor(private val apiFactory: ApiFactory) {
 
-    suspend fun getTracks(id : String) : TrackResponse{
-        return apiFactory.getTracks(id)
+    suspend fun getTracks(id : String, index : Int) : TrackResponse{
+        return apiFactory.getTracks(id,index)
     }
 
 }
