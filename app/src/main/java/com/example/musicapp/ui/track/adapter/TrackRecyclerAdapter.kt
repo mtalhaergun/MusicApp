@@ -16,6 +16,7 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
     private var tracks = emptyList<Data>()
     var mediaPlayer : MediaPlayer? = null
     var tempMedia = MediaPlayer()
+    var oldPosition = -1
 
 
     class TrackVH(private val binding : RecyclerSongLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -38,28 +39,38 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
 
         holder.itemView.setOnClickListener {
 
-            mediaPlayer = MediaPlayer()
+            if(oldPosition != position){
+                mediaPlayer = MediaPlayer()
 
-            if(tempMedia.isPlaying){
-                tempMedia.stop()
-                tempMedia.reset()
-                tempMedia.release()
+                if(tempMedia.isPlaying){
+                    tempMedia.stop()
+                    tempMedia.reset()
+                    tempMedia.release()
+                }
+
+                mediaPlayer?.apply {
+                    setAudioAttributes(
+                        AudioAttributes.Builder()
+                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                            .setUsage(AudioAttributes.USAGE_MEDIA)
+                            .build()
+                    )
+                }
+
+                mediaPlayer!!.setDataSource(tracks[position].preview)
+                mediaPlayer!!.prepare()
+                mediaPlayer!!.start()
+
+                tempMedia = mediaPlayer!!
+                oldPosition = position
+            }else{
+                if(tempMedia.isPlaying){
+                    tempMedia.stop()
+                }else{
+                    tempMedia.start()
+                }
+                oldPosition = -1
             }
-
-            mediaPlayer?.apply {
-                setAudioAttributes(
-                    AudioAttributes.Builder()
-                        .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                        .setUsage(AudioAttributes.USAGE_MEDIA)
-                        .build()
-                )
-            }
-
-            mediaPlayer!!.setDataSource(tracks[position].preview)
-            mediaPlayer!!.prepare()
-            mediaPlayer!!.start()
-
-            tempMedia = mediaPlayer!!
         }
     }
 

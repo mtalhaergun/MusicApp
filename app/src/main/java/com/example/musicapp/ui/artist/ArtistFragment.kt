@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.musicapp.R
 import com.example.musicapp.databinding.FragmentArtistBinding
@@ -42,6 +43,10 @@ class ArtistFragment : Fragment() {
         binding.textViewGenreName.setText(args.genreArg.name)
         viewModel.getArtist(args.genreArg.id.toString())
         observe()
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     fun observe(){

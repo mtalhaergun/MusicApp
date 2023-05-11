@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.musicapp.R
 import com.example.musicapp.databinding.FragmentTrackBinding
@@ -21,6 +22,7 @@ class TrackFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel by viewModels<TrackViewModel>()
     private val args by navArgs<TrackFragmentArgs>()
+    private var firstOpen = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,11 +38,20 @@ class TrackFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapterTrack = TrackRecyclerAdapter()
-        binding.rvTrack.adapter = adapterTrack
+        if(firstOpen){
+            adapterTrack = TrackRecyclerAdapter()
+            binding.rvTrack.adapter = adapterTrack
+            viewModel.getTracks(args.albumArg.id.toString(),0)
+            observe()
+            firstOpen = false
+        }else{
+            binding.rvTrack.adapter = adapterTrack
+        }
         binding.albumName.text = args.albumArg.title
-        viewModel.getTracks(args.albumArg.id.toString(),0)
-        observe()
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     fun observe(){
@@ -52,6 +63,7 @@ class TrackFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         adapterTrack.stopMusic()
+        _binding = null
     }
 
 }
