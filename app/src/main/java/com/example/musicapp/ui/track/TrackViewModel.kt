@@ -5,12 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.musicapp.model.track.Data
 import com.example.musicapp.model.track.TrackResponse
+import com.example.musicapp.room.FavoritesDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TrackViewModel @Inject constructor(private val repository: TrackRepository) : ViewModel() {
+class TrackViewModel @Inject constructor(private val repository: TrackRepository, private val fdao : FavoritesDao) : ViewModel() {
 
     val trackResponse : MutableLiveData<List<Data>> = MutableLiveData()
     var trackList = arrayListOf<Data>()
@@ -26,6 +27,10 @@ class TrackViewModel @Inject constructor(private val repository: TrackRepository
             trackCount-=25
         }
         trackResponse.value = trackList
+    }
+
+    fun getFavoritesDao() : FavoritesDao{
+        return fdao
     }
 
 }

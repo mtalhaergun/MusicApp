@@ -7,9 +7,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicapp.databinding.RecyclerSongLayoutBinding
+import com.example.musicapp.model.favorite.Favorites
 import com.example.musicapp.model.track.Data
+import com.example.musicapp.room.FavoritesDao
 import com.example.musicapp.ui.artistdetail.ArtistDetailFragment
 import com.example.musicapp.ui.artistdetail.ArtistDetailFragmentDirections
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>() {
 
@@ -17,14 +22,22 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
     var mediaPlayer : MediaPlayer? = null
     var tempMedia = MediaPlayer()
     var oldPosition = -1
+    var fdao : FavoritesDao? = null
 
 
     class TrackVH(private val binding : RecyclerSongLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(track : Data){
+        fun bind(track : Data,position: Int,fdao : FavoritesDao){
             binding.track = track
             binding.duration.text = "%d:%02d".format((track.duration/60),(track.duration%60))
 
             binding.executePendingBindings()
+
+            binding.likeImage.setOnClickListener {
+                val job = CoroutineScope(Dispatchers.Main).launch {
+                    val favorite = Favorites(track.id,track.duration,track.md5_image,track.preview,track.title)
+                    fdao.addFavorites(favorite)
+                }
+            }
         }
     }
 
@@ -35,7 +48,7 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
     }
 
     override fun onBindViewHolder(holder: TrackVH, position: Int) {
-        holder.bind(tracks[position])
+        holder.bind(tracks[position],position,fdao!!)
 
         holder.itemView.setOnClickListener {
 
@@ -89,5 +102,9 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
             mediaPlayer!!.reset()
             mediaPlayer!!.release()
         }
+    }
+
+    fun getDao(favoritesDao : FavoritesDao){
+        fdao = favoritesDao
     }
 }

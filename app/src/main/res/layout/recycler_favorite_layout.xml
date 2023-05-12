@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="favorite"
+            type="com.example.musicapp.model.favorite.Favorites" />
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        app:cardBackgroundColor="#2E2E2E"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/songImageCard"
+                android:layout_width="100dp"
+                android:layout_height="100dp">
+
+                <ImageView
+                    android:id="@+id/songImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    load_image="@{`https://e-cdns-images.dzcdn.net/images/cover/`+String.valueOf(favorite.md5_image)+`/250x250-000000-80-0-0.jpg`}"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/songName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@+id/likeImage"
+                android:layout_toEndOf="@id/songImageCard"
+                android:text="@{favorite.title}"
+                android:textColor="#FF9800"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_below="@+id/songName"
+                android:layout_toEndOf="@id/songImageCard"
+                android:text=""
+                android:textColor="#FF9800"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/likeImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/song_like_icon"/>
+
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

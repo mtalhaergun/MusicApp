@@ -57,6 +57,7 @@ class TrackFragment : Fragment() {
     fun observe(){
         viewModel.trackResponse.observe(viewLifecycleOwner, Observer {
             adapterTrack.setTracks(it)
+            adapterTrack.getDao(viewModel.getFavoritesDao())
         })
     }
 

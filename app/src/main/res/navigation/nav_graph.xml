@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_genreFragment_to_artistFragment"
             app:destination="@id/artistFragment" />
+        <action
+            android:id="@+id/action_genreFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/artistFragment"
@@ -55,5 +58,14 @@
         <argument
             android:name="albumArg"
             app:argType="com.example.musicapp.model.album.Data" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.musicapp.ui.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_genreFragment"
+            app:destination="@id/genreFragment" />
     </fragment>
 </navigation>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import com.example.musicapp.R
 import com.example.musicapp.databinding.FragmentGenreBinding
 import com.example.musicapp.model.genre.Data
@@ -39,6 +40,11 @@ class GenreFragment : Fragment() {
         binding.rvGenre.adapter = adapterGenre
         viewModel.getGenres()
         observe()
+
+        binding.textView.setOnClickListener {
+            val navigation = GenreFragmentDirections.actionGenreFragmentToFavoritesFragment()
+            Navigation.findNavController(it).navigate(navigation)
+        }
     }
 
     fun observe(){
