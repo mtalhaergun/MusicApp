@@ -41,10 +41,6 @@ class GenreFragment : Fragment() {
         viewModel.getGenres()
         observe()
 
-        binding.textView.setOnClickListener {
-            val navigation = GenreFragmentDirections.actionGenreFragmentToFavoritesFragment()
-            Navigation.findNavController(it).navigate(navigation)
-        }
     }
 
     fun observe(){
