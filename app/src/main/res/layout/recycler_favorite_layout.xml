@@ -66,13 +66,13 @@
                 android:textSize="14sp" />
 
             <ImageView
-                android:id="@+id/likeImage"
+                android:id="@+id/favoriteLikeImage"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="5dp"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/song_like_icon"/>
+                android:src="@drawable/song_like_filled_icon"/>
 
 
         </RelativeLayout>

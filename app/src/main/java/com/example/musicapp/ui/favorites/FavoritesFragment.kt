@@ -34,8 +34,9 @@ class FavoritesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapterFavorites = FavoritesRecyclerAdapter()
+        adapterFavorites = FavoritesRecyclerAdapter(viewModel)
         binding.rvFavorites.adapter = adapterFavorites
+        adapterFavorites.getDao(viewModel.getFavoritesDao())
         viewModel.getFavorites()
         observe()
     }
@@ -44,6 +45,12 @@ class FavoritesFragment : Fragment() {
         viewModel.favorites.observe(viewLifecycleOwner, Observer {
             adapterFavorites.setFavorites(it)
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        adapterFavorites.stopMusic()
+        _binding = null
     }
 
 }

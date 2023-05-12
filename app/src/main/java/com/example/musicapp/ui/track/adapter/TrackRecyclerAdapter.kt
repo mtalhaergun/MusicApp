@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.musicapp.R
 import com.example.musicapp.databinding.RecyclerSongLayoutBinding
 import com.example.musicapp.model.favorite.Favorites
 import com.example.musicapp.model.track.Data
@@ -29,13 +30,25 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
         fun bind(track : Data,position: Int,fdao : FavoritesDao){
             binding.track = track
             binding.duration.text = "%d:%02d".format((track.duration/60),(track.duration%60))
-
+            val job = CoroutineScope(Dispatchers.Main).launch {
+                if (fdao.searchId(track.id)) {
+                    binding.likeImage.setImageResource(R.drawable.song_like_filled_icon)
+                }else{
+                    binding.likeImage.setImageResource(R.drawable.song_like_icon)
+                }
+            }
             binding.executePendingBindings()
 
             binding.likeImage.setOnClickListener {
                 val job = CoroutineScope(Dispatchers.Main).launch {
                     val favorite = Favorites(track.id,track.duration,track.md5_image,track.preview,track.title)
-                    fdao.addFavorites(favorite)
+                    if(fdao.searchId(track.id)){
+                        fdao.deleteFavorites(favorite)
+                        binding.likeImage.setImageResource(R.drawable.song_like_icon)
+                    }else{
+                        fdao.addFavorites(favorite)
+                        binding.likeImage.setImageResource(R.drawable.song_like_filled_icon)
+                    }
                 }
             }
         }
