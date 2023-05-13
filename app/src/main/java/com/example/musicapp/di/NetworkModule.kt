@@ -57,7 +57,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideKisilerDao(@ApplicationContext context: Context) : FavoritesDao{
-        val vt = Room.databaseBuilder(context,DatabaseFavorites::class.java,"favorites.sqlite")
+        val vt = Room.databaseBuilder(context,DatabaseFavorites::class.java,"favorite.sqlite")
             .build()
         return vt.getFavoritesDao()
     }

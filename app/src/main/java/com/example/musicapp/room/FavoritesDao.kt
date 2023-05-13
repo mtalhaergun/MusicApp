@@ -18,6 +18,6 @@ interface FavoritesDao {
     @Delete
     suspend fun deleteFavorites(favorite: Favorites)
 
-    @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE id = :id LIMIT 1)")
-    suspend fun searchId(id: Long): Boolean
+    @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE title = :title LIMIT 1)")
+    suspend fun searchName(title: String): Boolean
 }

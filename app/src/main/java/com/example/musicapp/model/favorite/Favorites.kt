@@ -8,7 +8,7 @@ import java.io.Serializable
 
 @Entity(tableName = "favorites")
 data class Favorites(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Long,
     @ColumnInfo(name = "duration")

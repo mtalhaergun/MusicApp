@@ -31,7 +31,7 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
             binding.track = track
             binding.duration.text = "%d:%02d".format((track.duration/60),(track.duration%60))
             val job = CoroutineScope(Dispatchers.Main).launch {
-                if (fdao.searchId(track.id)) {
+                if (fdao.searchName(track.title)) {
                     binding.likeImage.setImageResource(R.drawable.song_like_filled_icon)
                 }else{
                     binding.likeImage.setImageResource(R.drawable.song_like_icon)
@@ -41,8 +41,8 @@ class TrackRecyclerAdapter : RecyclerView.Adapter<TrackRecyclerAdapter.TrackVH>(
 
             binding.likeImage.setOnClickListener {
                 val job = CoroutineScope(Dispatchers.Main).launch {
-                    val favorite = Favorites(track.id,track.duration,track.md5_image,track.preview,track.title)
-                    if(fdao.searchId(track.id)){
+                    val favorite = Favorites(0,track.duration,track.md5_image,track.preview,track.title)
+                    if(fdao.searchName(track.title)){
                         fdao.deleteFavorites(favorite)
                         binding.likeImage.setImageResource(R.drawable.song_like_icon)
                     }else{

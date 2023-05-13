@@ -5,26 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.splashscreen.SplashScreenActivity"
-    android:background="#FF9800">
+    android:background="#252525">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        app:cardBackgroundColor="#FFE2B4"
-        app:cardCornerRadius="125dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <pl.droidsonroids.gif.GifImageView
+        <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/splashlogo" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/splashlogo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
