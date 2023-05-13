@@ -2,7 +2,11 @@
 
 An android application that lists music genres, artists, albums and songs through [Deezer API](https://developers.deezer.com/api).
 
-https://github.com/mtalhaergun/Git/assets/63156563/4efec7da-75c2-47e8-ace6-5cda3b165b4e
+
+
+https://github.com/mtalhaergun/MusicApp/assets/63156563/85adc873-d0a4-4f47-988c-e11bb8db39e7
+
+
 
 
 ---
