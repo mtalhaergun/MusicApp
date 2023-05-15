@@ -51,7 +51,7 @@
                 android:layout_toEndOf="@id/songImageCard"
                 android:text="@{track.title}"
                 android:textColor="#FF9800"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_toEndOf="@id/songImageCard"
                 android:text=""
                 android:textColor="#FF9800"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
 
             <ImageView
                 android:id="@+id/likeImage"

@@ -51,7 +51,7 @@
                 android:layout_alignParentEnd="true"
                 android:text="@{album.title}"
                 android:textColor="#FF9800"
-                android:textSize="16sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_toEndOf="@id/albumImageCard"
                 android:text="@{album.release_date}"
                 android:textColor="#FF9800"
-                android:textSize="13sp" />
+                android:textSize="10sp" />
 
 
         </RelativeLayout>

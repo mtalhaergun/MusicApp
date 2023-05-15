@@ -57,7 +57,7 @@
                     android:text="@{artist.name}"
                     android:maxLines="1"
                     android:textColor="#FF9800"
-                    android:textSize="17sp"
+                    android:textSize="13sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
 
